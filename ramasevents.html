@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramas Events by Priyas</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+  header {
+    background: black;
+    color: gold;
+    padding: 15px 20px;
+    text-align: center;
+    position: relative;
+  }
+  header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    margin: 0;
+    color: gold; 
+  }
+  header p {
+    margin: 5px 0 0 0;
+    font-size: 18px;
+    color: gold; 
+  }
+  .top-left-icons {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: gold; 
+    font-size: 16px;
+  }
+  .top-left-icons a {
+    color: gold; 
+    margin-right: 10px;
+    text-decoration: none;
+  }
+
+  .qr-code {
+    margin-top: 10px;
+  }
+  .qr-code img {
+    display: inline-block;
+    border: 2px solid gold;
+    border-radius: 10px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    background: #333;
+  }
+  nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  nav a:hover {
+    background: #575757;
+  }
+  .content-section {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: none;
+  }
+  .active-section {
+    display: block;
+  }
+  /* Slideshow */
+  .slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  .slides {
+    display: none;
+    position: relative;
+  }
+  .slides img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+  .dot-container {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .active {
+    background-color: #717171;
+  }
+   /* Gallery */
+  #galleryImages img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  #galleryImages img:hover {
+    border-color: #800020;
+  }
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+  }
+  .modal img {
+    max-width: 80%;
+    max-height: 80%;
+    border: 5px solid #fff;
+    border-radius: 10px;
+  }
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #800020;
+    font-weight: bold;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top-right-icons">
+    <span><i class="fa fa-phone"></i> Call Us: +1 (832) 308-0792</span>
+   <a href="https://www.facebook.com/Ramas-events-100067481154361" class="social-icon facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/ramas_events/" class="social-icon instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+  <h1>Ramas Events by Priyas</h1>
+  <p>Design • Décor • Weddings • Celebrations</p>
+</header>
+
+<style>
+  header {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .top-right-icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 1.2em; /* size of text */
+  }
+
+  .top-right-icons span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+  }
+
+  .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid yellow; /* circular border */
+    border-radius: 50%; /* make circle */
+    color: yellow; /* icon color */
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .social-icon i {
+    font-size: 18px;
+  }
+
+  /* Optional hover effect */
+  .social-icon:hover {
+    background: yellow;
+    color: black;
+  }
+
+  .top-right-icons a {
+    text-decoration: none;
+  }
+</style>
+
+<nav>
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('about')">About Us</a>
+  <a onclick="showSection('services')">Design & Decor Services</a>
+  <a onclick="showSection('packages')">Wedding Design Packages</a>
+  <a onclick="showSection('contact')">Contact Us</a>
+</nav>
+
+<!-- Home Section -->
+<div id="home" class="content-section active-section">
+  <div class="slideshow-container">
+    <div class="slides fade">
+      <img src="file:///C:/Users/priya/OneDrive/Desktop/SAS/kids/wedding decor/p1.jpg" alt="Event Design 1">
+    </div>
+    <div class="slides fade">
+      <img src="file:///C:/Users/priya/OneDrive/Desktop/SAS/kids/wedding decor/p2.jpg" alt="Event Design 2">
+    </div>
+    <div class="slides fade">
+      <img src="file:///C:/Users/priya/OneDrive/Desktop/SAS/kids/wedding decor/p3.jpg" alt="Event Design 3">
+    </div>
+    <div class="slides fade">
+      <img src="file:///C:/Users/priya/OneDrive/Desktop/SAS/kids/wedding decor/p4.jpg" alt="Event Design 4">
+    </div>
+    <div class="slides fade">
+      <img src="file:///C:/Users/priya/OneDrive/Desktop/SAS/kids/wedding decor/p5.jpg" alt="Event Design 5">
+    </div>
+    <div class="slides fade">
+      <img src="file:///C:/Users/priya/OneDrive/Desktop/SAS/kids/wedding decor/p6.jpg" alt="Event Design 6">
+    </div>
+    <div class="slides fade">
+      <img src="file:///C:/Users/priya/OneDrive/Desktop/SAS/kids/wedding decor/p7.jpg" alt="Event Design 7">
+    </div>
+    <div class="slides fade">
+      <img src="file:///C:/Users/priya/OneDrive/Desktop/SAS/kids/wedding decor/p8.jpg" alt="Event Design 8">
+    </div>
+  </div>
+
+  <div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+    <span class="dot" onclick="currentSlide(4)"></span> 
+    <span class="dot" onclick="currentSlide(5)"></span> 
+    <span class="dot" onclick="currentSlide(6)"></span> 
+    <span class="dot" onclick="currentSlide(7)"></span> 
+    <span class="dot" onclick="currentSlide(8)"></span> 
+  </div>
+
+  <p>Welcome to <strong>Ramas Events by Priyas</strong> – where your dream events come to life! Explore our services, packages, and gallery for inspiration.</p>
+</div>
+
+
+
+<!-- About Us Section -->
+<style>
+  body {
+    background-color: beige;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slideUp {
+    animation: slideUp 2.5s ease-in-out;
+  }
+</style>
+
+
+<div id="about" class="content-section relative overflow-hidden py-12 px-6" ;">
+  
+ <!-- Main Heading -->
+<h2 class="main-heading">
+  ABOUT RAMAS EVENTS
+</h2>
+
+<style>
+  .main-heading {
+    color: brown;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+</style>
+
+  
+  <!-- Subheading -->
+<h3 style="text-align:center; font-style:italic; font-size:1.25rem; color:#d97706; margin-bottom:2.5rem;">
+  Event Planner in Dallas–Fort Worth
+</h3>
+  
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto text-lg leading-relaxed text-gray-800 space-y-6 animate-slideUp">
+    
+    <p>
+      <strong class="text-pink-700">Ramas Events</strong> is the leading Event Planner in Dallas, known for transforming your vision into reality with exceptional experiences. 
+      Founded in 2017 by <strong class="text-yellow-700">Priya</strong>, an MBA graduate with a deep passion for event planning, Ramas Events has built a strong reputation 
+      as one of the most trusted wedding planners in Dallas. With a focus on creativity, precision, and a personal touch, we have successfully 
+      planned over <strong class="text-pink-700">500+ events</strong> with <strong class="text-yellow-700">8+ years of experience</strong>, establishing ourselves as the go-to choice for event planning in Dallas.
+    </p>
+    
+    <p>
+      <strong class="text-pink-700">Tailored Event Planning Services</strong><br>
+      At Ramas Events, we specialize in creating unforgettable events. As a skilled Wedding Planner in Dallas, we understand that every celebration is unique. 
+      We customize each event to meet your specific needs—whether it’s an intimate gathering or a grand wedding, we ensure a seamless, stress-free experience 
+      with every detail thoughtfully designed and executed.
+    </p>
+    
+    <p>
+      <strong class="text-pink-700">Expertise in Coordination & Design</strong><br>
+      With years of experience, Ramas Events offers expertise in event coordination and creative design. From weddings and corporate events to milestone celebrations 
+      and private parties, our diverse portfolio and talented team make us one of the most sought-after event planners in Dallas.
+    </p>
+    
+    <p>
+      <strong class="text-pink-700">Why Choose Ramas Events?</strong><br>
+      As an event planner in Dallas, we prioritize client satisfaction and work tirelessly to bring your vision to life. Choose us for personalized service 
+      and unparalleled expertise. Let us create an extraordinary experience for your special occasion.
+    </p>
+    
+    <!-- Elegant Quote -->
+    <blockquote class="italic text-center mt-10 text-pink-600 font-medium">
+      “Ramas Events – a celebratory and elegant shade often associated with warmth and positivity, symbolising happiness and new beginnings.”
+    </blockquote>
+  </div>
+</div>
+
+<!-- Animations (CSS) -->
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 2s ease-in-out;
+  }
+  .animate-slideUp {
+    animation: slideUp 2.5s ease-in-out;
+  }
+</style>
+
+
+<!-- Services Section -->
+<div id="services" class="content-section py-12 px-6" style="background-color:beige;">
+  
+  <!-- Main Heading -->
+  <h2 style="text-align:center; font-size:2.5rem; font-weight:bold; color:brown; text-transform:uppercase; margin-bottom:1rem;">
+    OUR SERVICES
+  </h2>
+  
+  <!-- Intro Paragraph (centered) -->
+  <p style="text-align:center; font-size:1.1rem; margin-bottom:2rem; line-height:1.6;  font-style:italic;">
+    Whether your dream wedding is a close-knit, intimate gathering or a lavish big fat Indian wedding celebration, we’re here to offer you and your family 
+    the opportunity to sit back and relax and truly treasure every special moment of your wedding! 
+    We pay meticulous attention to the smallest details and strive to seamlessly transform your vision into a spectacular event that is beautifully styled and designed 
+    based on your personal stories to make it truly yours.
+  </p>
+
+  <!-- Types of Weddings -->
+  <div style="max-width:800px; margin:0 auto; font-size:1.1rem; line-height:1.8; text-align:center;">
+    <p style="font-weight:bold; text-transform:uppercase; color:brown;">We specialize in:</p>
+    <ul style="list-style-type:disc; padding-left:20px; display:inline-block; text-align:left; margin-bottom:1.5rem;">
+      <li>Hindu Weddings</li>
+      <li>Christian Weddings</li>
+      <li>Muslim Weddings</li>
+      <li>Telugu, Gujarati, Malayali, Punjabi, Bengali, Tamil Weddings</li>
+    </ul>
+
+    <!-- Other Events -->
+    <p style="font-weight:bold; text-transform:uppercase; color:brown;">Other Event Planning Services:</p>
+    <ul style="list-style-type:disc; padding-left:20px; display:inline-block; text-align:left;">
+      <li>Half Saree Events</li>
+      <li>Baby Showers</li>
+      <li>Sreeemnatham</li>
+      <li>Birthdays</li>
+      <li>Graduation Parties</li>
+      <li>Quinceañera</li>
+      <li>Arangetram</li>
+      <li>Sweet 16</li>
+      <li>Sangeeth</li>
+      <li>Housewarming</li>
+      <li>Engagements</li>
+      <li>Upanayanam</li>
+
+
+    </ul>
+  </div>
+</div>
+
+
+
+
+<!-- Packages Section -->
+<div id="packages" class="content-section">
+  <h2>Wedding Design Packages</h2>
+  <p>We offer customizable packages including décor, lighting, floral arrangements, and event coordination. Perfect for traditional, modern, or themed weddings.</p>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="content-section" style="background-color:beige; animation: fadeIn 2s ease-in;">
+  <h2 style=" text-align:center;">Get in Touch</h2>
+  <p style="text-align:center; font-size:18px;">Tell us about your dream event</p>
+
+  <form id="contactForm" style="max-width: 600px; margin: auto; animation: slideIn 1.5s ease-out;">
+    
+    <!-- Name -->
+    <label for="firstName">Name *</label>
+    <div style="display: flex; gap: 10px;">
+      <input type="text" id="firstName" name="firstName" placeholder="First" required style="flex:1;">
+      <input type="text" id="lastName" name="lastName" placeholder="Last" required style="flex:1;">
+    </div>
+
+    <!-- Phone -->
+    <label for="phone">Phone *</label>
+    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+
+    <!-- Email -->
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+    <!-- Service Type -->
+    <label for="service">Service Type *</label>
+    <select id="service" name="service" required>
+      <option value="">Select a service</option>
+      <option value="Birthday Event">Birthday Event</option>
+      <option value="Wedding">Wedding</option>
+      <option value="Half Saree Event">Half Saree Event</option>
+      <option value="Quinceañera">Quinceañera</option>
+      <option value="Anniversary">Anniversary</option>
+      <option value="House Warming">House Warming</option>
+      <option value="Baby Shower">Baby Shower</option>
+      <option value="Corporate Event">Corporate Event</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <!-- Date / Time -->
+    <label for="eventDate">Date / Time *</label>
+    <div style="display: flex; gap: 10px;">
+      <input type="date" id="eventDate" name="eventDate" required style="flex:1;">
+      <input type="time" id="eventTime" name="eventTime" required style="flex:1;">
+    </div>
+
+    <!-- Venue -->
+    <label>Venue *</label>
+    <div style="display: flex; gap: 10px; align-items:center;">
+      <input type="radio" id="venueYes" name="venue" value="Yes" required>
+      <label for="venueYes">Yes</label>
+      <input type="radio" id="venueNo" name="venue" value="No">
+      <label for="venueNo">No</label>
+    </div>
+    <p style="font-size: 0.9em; color: gray;">We provide venue for you if you select 'Yes'.</p>
+
+    <!-- Message -->
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Please provide any other helpful information..." maxlength="500" style="height:120px;"></textarea>
+    <p id="charCount">0 of 500 max characters.</p>
+
+    <!-- Submit -->
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Additional Contact Info -->
+  <div style="margin-top:30px; text-align:center;">
+    <h2 style="color:#4B0082;">Contact Us</h2>
+    <p>We’d love to hear from you! Reach out for consultations, bookings, or questions:</p>
+    <ul style="list-style:none; padding:0;">
+      <li>Email: ramaseventsllc@gmail.com</li>
+      <li>Phone: +1 (832) 308-0792</li>
+      <li>Address: Dallas Fortworth, TX</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-50px);}
+    to { opacity: 1; transform: translateX(0);}
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-10px);}
+  }
+</style>
+
+<script>
+  // Character counter for message
+  const messageInput = document.getElementById('message');
+  const charCount = document.getElementById('charCount');
+
+  messageInput.addEventListener('input', () => {
+    charCount.textContent = `${messageInput.value.length} of 500 max characters.`;
+  });
+</script>
+
+
+<footer>
+  © 2017 Ramas Events by Priyas | All Rights Reserved
+</footer>
+
+<!-- Modal -->
+<div id="imgModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img id="modalImg" src="">
+</div>
+
+<script>
+  // Section navigation
+  function showSection(id) {
+    let sections = document.getElementsByClassName('content-section');
+    for(let sec of sections) sec.classList.remove('active-section');
+    document.getElementById(id).classList.add('active-section');
+  }
+
+  // Slideshow
+  let slideIndex = 0;
+  const slides = document.getElementsByClassName("slides");
+  const dots = document.getElementsByClassName("dot");
+
+  function showSlidesAuto() {
+    for(let i=0;i<slides.length;i++) slides[i].style.display="none";
+    slideIndex++;
+    if(slideIndex>slides.length) slideIndex=1;
+    slides[slideIndex-1].style.display="block";
+    for(let i=0;i<dots.length;i++) dots[i].className=dots[i].className.replace(" active","");
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlidesAuto,3000); // Change slide every 3 seconds
+  }
+
+  showSlidesAuto();
+
+  function currentSlide(n){
+    slideIndex = n-1;
+    showSlidesAuto();
+  }
+
+  // Gallery modal
+  const galleryImages = document.getElementById("galleryImages");
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+
+  galleryImages.querySelectorAll("img").forEach(img => {
+    img.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+  });
+
+  function closeModal() { modal.style.display="none"; }
+  window.onclick = function(event){ if(event.target===modal) closeModal(); }
+</script>
+</body>
+</html>
